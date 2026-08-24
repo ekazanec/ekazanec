@@ -105,28 +105,27 @@ def build(user: dict) -> str:
     since = user["createdAt"][:4]
     today = date.today().isoformat()
 
-    header = r"""
-      _
-  ___| | ____ _ ______ _ _ __   ___  ___
- / _ \ |/ / _` |_  / _` | '_ \ / _ \/ __|
-|  __/   < (_| |/ / (_| | | | |  __/ (__
- \___|_|\_\__,_/___\__,_|_| |_|\___|\___|
-"""
+    with open(os.path.join(os.path.dirname(__file__), "header.txt")) as f:
+        header = f.read().rstrip("\n")
+    public = sum(1 for n in repos["nodes"] if n["visibility"] == "PUBLIC")
     card = [
-        f"ekazanec@github",
-        f"---------------",
-        f"Uptime....: since {since}",
-        f"Repos.....: {repos['totalCount']} ({sum(1 for n in repos['nodes'] if n['visibility'] == 'PUBLIC')} public, rest classified)",
-        f"Focus.....: TypeScript · creative coding · AI agents",
-        f"Now.......: particle-ocean — 17 sea creatures as three.js",
-        f"            point clouds, each with its own swimming physics",
-        f"Live......: https://agurov.com/ocean/",
+        "andrey@gurov ~ $ whoami",
+        "-----------------------",
+        "Role......: AI-native product designer · SF Bay Area",
+        "Craft.....: research-led product design, design systems,",
+        "            e-commerce, AI-assisted workflows",
+        "Now.......: particle-ocean — 17 sea creatures as three.js",
+        "            point clouds, each with its own swimming physics",
+        "Portfolio.: https://agurov.com",
+        "Live demo.: https://agurov.com/ocean/",
+        f"Uptime....: on GitHub since {since}",
+        f"Repos.....: {repos['totalCount']} ({public} public — the rest is classified)",
         "",
-        "$ top -o languages",
+        "andrey@gurov ~ $ top -o languages",
     ] + bar_chart(langs)
 
     return f"""```text
-{header.strip(chr(10))}
+{header}
 ```
 
 ```text
