@@ -21,7 +21,8 @@ Uptime....: on GitHub since 2016
 Repos.....: 2 (2 public — the rest is classified)
 
 andrey@gurov ~ $ top -o languages
-TypeScript  ########################## 100%
+TypeScript  #############............. 50%
+Python      #############............. 50%
 ```
 
 ### contribution flow
@@ -38,4 +39,4 @@ fri                                                    :
     less  .:!*#@ more · 12 contributions · peak 5/day
 ```
 
-<sub>ASCII graph regenerated daily by a GitHub Action · last run 2026-08-24</sub>
+<sub>ASCII graph regenerated daily by a GitHub Action · last run 2026-08-25</sub>
